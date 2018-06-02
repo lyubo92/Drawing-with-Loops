@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class drawFort {
+    public static void repeat(String repeatStr, double n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        double distance = 0;
+        double tower = Math.floor( n/ 2.0);
+        int width = 2 * n;
+        if (width - (2 * (tower  + 2)) > 0){
+            distance = (width - (2 * (tower  + 2)));
+        }
+        //first row
+        System.out.print("/");
+        repeat("^", tower);
+        System.out.print("\\");
+        repeat("_", distance);
+        System.out.print("/");
+        repeat("^", tower);
+        System.out.print("\\");
+        System.out.println();
+
+        //middle part
+        for (int row = 1; row <= n - 2; row++) {
+            if (row == n - 2){
+                System.out.print("|");
+                repeat(" ",((2 * n - 2) - distance)/ 2);
+                repeat("_", distance);
+                repeat(" ",((2 * n - 2) - distance) / 2);
+                System.out.print("|");
+                System.out.println();
+            }else{
+                System.out.print("|");
+                repeat(" ", 2 * n - 2);
+                System.out.print("|");
+                System.out.println();
+            }
+
+        }
+
+        //last row
+        System.out.print("\\");
+        repeat("_", tower);
+        System.out.print("/");
+        repeat(" ", distance);
+        System.out.print("\\");
+        repeat("_", tower);
+        System.out.print("/");
+    }
+}
