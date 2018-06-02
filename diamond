@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class diamond {
+    public static void repeat(String repeatStr, double n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        if (n == 1) {
+            System.out.println("*");
+        } else if (n == 2) {
+            System.out.println("**");
+        } else if (n >= 3) {
+            String top = "";
+            String middle = "";
+            if (n % 2 == 0) {
+                top = "**";
+                middle = "--";
+            } else {
+                top = "*";
+                middle = "-";
+            }
+            //first row
+            repeat("-", Math.ceil(n / 2.0 - 1));
+            System.out.print(top);
+            repeat("-", Math.ceil(n / 2.0 - 1));
+            System.out.println();
+
+            //top half
+            for (int row = 0; row < Math.ceil(n / 2.0 - 2); row++) {
+                repeat("-", Math.ceil(n / 2.0 - 2 - row));
+                System.out.print("*");
+                System.out.print(middle);
+                System.out.print("*");
+                repeat("-", Math.ceil(n / 2.0 - 2 - row));
+                middle += "--";
+                System.out.println();
+            }
+
+
+            //middle row
+            System.out.print("*");
+            repeat("-", n - 2);
+            System.out.print("*");
+            System.out.println();
+
+            //second half
+            int decrease = 2;
+            String begin = "-";
+            for (int row = 0; row < Math.ceil(n / 2.0 - 2); row++) {
+                System.out.print(begin);
+                System.out.print("*");
+                repeat("-", n - 2 - decrease);
+                System.out.print("*");
+                System.out.print(begin);
+                begin += "-";
+                decrease += 2;
+                System.out.println();
+            }
+
+
+            //last row
+            repeat("-", Math.ceil(n / 2.0 - 1));
+            System.out.print(top);
+            repeat("-", Math.ceil(n / 2.0 - 1));
+        }
+    }
+}
