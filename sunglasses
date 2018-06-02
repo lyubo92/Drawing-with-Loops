@@ -1,0 +1,41 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class sunglasses {
+    public static void  repeat(String repeatStr, int n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        //first row
+        repeat("*", 2 * n);
+        repeat(" ", n);
+        repeat("*", 2 * n);
+        System.out.println();
+        //middle part
+        for (int row = 1; row <= n - 2; row++) {
+            String frame = "";
+            if (row == Math.floor((n-1)/2)){
+                frame = "|";
+            }else{
+                frame = " ";
+            }
+            System.out.print("*");
+            repeat("/", 2 * n- 2);
+            System.out.print("*");
+            repeat(frame, n);
+            System.out.print("*");
+            repeat("/", 2 * n- 2);
+            System.out.print("*");
+            System.out.println();
+        }
+        //last row
+        repeat("*", 2 * n);
+        repeat(" ", n);
+        repeat("*", 2 * n);
+
+    }
+}
