@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class christmasTree {
+    public static void repeat(String repeatStr, int n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        repeat(" ", n);
+        System.out.print(" | ");
+        repeat(" ", n);
+        System.out.println();
+        for (int row = 1; row <= n; row++) {
+            repeat(" ", n - row);
+            repeat("*", row);
+            System.out.print(" | ");
+            repeat("*", row);
+            System.out.println();
+        }
+    }
+}
