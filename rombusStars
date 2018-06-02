@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class rombusStars {
+    public static void repeat(String repeatStr, int n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        //first half
+        for (int row = 1; row <= n; row++) {
+            repeat(" ", n - row);
+            repeat("* ",row);
+            System.out.println();
+        }
+        //second half
+        for (int row = 1; row <= n - 1; row++) {
+            repeat(" ",row);
+            repeat("* ", n - row);
+            System.out.println();
+        }
+    }
+}
