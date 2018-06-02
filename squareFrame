@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class squareFrame {
+    public static void repeat(String repeatStr, int n){
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        //first row
+        System.out.print("+ ");
+        repeat("- ", n - 2);
+        System.out.print("+");
+        System.out.println();
+        //middle part
+        for (int i = 0; i < n - 2; i++) {
+            System.out.print("| ");
+            repeat("- ", n - 2);
+            System.out.print("|");
+            System.out.println();
+        }
+        //last row
+        System.out.print("+ ");
+        repeat("- ", n - 2);
+        System.out.print("+");
+    }
+}
