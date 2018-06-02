@@ -1,0 +1,36 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class house {
+    public static void repeat(String repeatStr, double n){
+        for (int i = 0; i <  n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        String topStar = "";
+        if (n % 2 == 0){
+            topStar = "**";
+        }else{
+            topStar = "*";
+        }
+        //top
+        for (int row = 0; row < Math.ceil(n/2.0); row++) {
+            repeat("-", Math.ceil(n / 2.0) - (row + 1));
+            System.out.print(topStar);
+            repeat("-", Math.ceil(n / 2.0) - (row + 1));
+            topStar += "**";
+            System.out.println();
+        }
+
+        //body
+        for (int row = 0; row < Math.floor(n/2); row++) {
+            System.out.print("|");
+            repeat("*", n - 2);
+            System.out.print("|");
+            System.out.println();
+        }
+    }
+}
