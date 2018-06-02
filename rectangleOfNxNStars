@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class rectangleOfNxNStars {
+    public static void repeat(String repeatStr, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print(repeatStr);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        for (int i = 0; i < n; i++) {
+            repeat("*", n);
+            System.out.println();
+        }
+    }
+}
